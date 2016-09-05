@@ -68,6 +68,7 @@ end
 for (func,rtn) in [(:getDdNumInfeasSolutions, Cint),
 		   (:getDdCpuTime, Cdouble),
                    (:getDdNumChangesOfMultiplier, Cint),
+                   (:getDdNumSubPrimalBounds, Cint),
                    (:getDdMasterTotalTime, Cdouble),
                    (:getDdLbTotalTime, Cdouble),
                    (:getDdUbTotalTime, Cdouble),
