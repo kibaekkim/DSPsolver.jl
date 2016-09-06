@@ -26,10 +26,10 @@ function getDdMasterObjValues()
 	return vals
 end
 
-function getDdSubPrimalBounds()
-	num = @dsp_ccall("getDdNumSubPrimalBounds", Cint, (Ptr{Void},), env.p)
+function getDdSubproblemObjValues()
+	num = @dsp_ccall("getDdNumSubproblemObjValues", Cint, (Ptr{Void},), env.p)
 	vals = Array(Cdouble, num)
-	@dsp_ccall("getDdSubPrimalBounds", Void, (Ptr{Void}, Ptr{Cdouble}), env.p, vals)
+	@dsp_ccall("getDdSubproblemObjValues", Void, (Ptr{Void}, Ptr{Cdouble}), env.p, vals)
 	return vals
 end
 
@@ -68,7 +68,7 @@ end
 for (func,rtn) in [(:getDdNumInfeasSolutions, Cint),
 		   (:getDdCpuTime, Cdouble),
                    (:getDdNumChangesOfMultiplier, Cint),
-                   (:getDdNumSubPrimalBounds, Cint),
+                   (:getDdNumSubproblemObjValues, Cint),
                    (:getDdMasterTotalTime, Cdouble),
                    (:getDdLbTotalTime, Cdouble),
                    (:getDdUbTotalTime, Cdouble),
